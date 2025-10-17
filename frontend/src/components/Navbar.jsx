@@ -25,7 +25,7 @@ const Navbar = () => {
             to="/"
             className="hover:underline"
             onClick={() => {
-              setContentType("Movie");
+              setContentType("movie");
             }}
           >
             Movies
