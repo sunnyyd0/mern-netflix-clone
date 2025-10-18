@@ -1,4 +1,4 @@
-import { Routes, Route,Navigate } from "react-router";
+import { Routes, Route, Navigate } from "react-router";
 
 import HomePage from "./Pages/Home/HomePage";
 import LoginPage from "./Pages/LoginPage";
@@ -8,6 +8,7 @@ import { Toaster } from "react-hot-toast";
 import { useAuthStore } from "./store/authUser";
 import { useEffect } from "react";
 import { Loader } from "lucide-react";
+import WatchPage from "./Pages/WatchPage";
 
 function App() {
   const { user, isCheckingAuth, authCheck } = useAuthStore();
@@ -26,10 +27,21 @@ function App() {
   return (
     <>
       <Routes>
-<Route path='/' element={<HomePage />} />
-				<Route path='/login' element={!user ? <LoginPage /> : <Navigate to={"/"} />} />
-				<Route path='/signup' element={!user ? <SignupPage /> : <Navigate to={"/"} />} />
+        <Route path="/" element={<HomePage />} />
+        <Route
+          path="/login"
+          element={!user ? <LoginPage /> : <Navigate to={"/"} />}
+        />
+        <Route
+          path="/signup"
+          element={!user ? <SignupPage /> : <Navigate to={"/"} />}
+        />
+        <Route
+          path={"/watch/:id"}
+          element={user ? <WatchPage /> : <LoginPage />}
+        />
       </Routes>
+
       <Footer />
       <Toaster />
     </>
