@@ -2,7 +2,7 @@ import { Routes, Route, Navigate } from "react-router";
 
 import HomePage from "./Pages/Home/HomePage";
 import LoginPage from "./Pages/LoginPage";
-import SignupPage from "./Pages/SignupPage";
+import SignUpPage from "./Pages/SignUpPage";
 import Footer from "./components/Footer";
 import { Toaster } from "react-hot-toast";
 import { useAuthStore } from "./store/authUser";
@@ -37,7 +37,7 @@ function App() {
         />
         <Route
           path="/signup"
-          element={!user ? <SignupPage /> : <Navigate to={"/"} />}
+          element={!user ? <SignUpPage /> : <Navigate to={"/"} />}
         />
         <Route
           path={"/watch/:id"}
